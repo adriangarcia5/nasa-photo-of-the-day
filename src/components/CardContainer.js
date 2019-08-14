@@ -1,14 +1,32 @@
 
 // Building out the NASA card that will show an image
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NasaCard from "./NasaCard.js";
+import { className } from "postcss-selector-parser";
 
  function CardContainer() {
-    return (
-        <NasaCard />
-    )
-}
+    function CardContainer() {
+        // NASA KEY: https://api.nasa.gov/planetary/apod?api_key=JmvQUr9DIoMy0TsbX9mx0ZbTpbVnMDiWhUdFBCIg
+        const [container, setContainer] = useState([])
+    
+         useEffect(() => {
+            axios
+                .get(`https://api.nasa.gov/planetary/apod?api_key=JmvQUr9DIoMy0TsbX9mx0ZbTpbVnMDiWhUdFBCIg&date=2012-03-14`)
+                .then(response => {
+                    const cards = response.data.url;
+                    console.log('NASA API Response: ', cards)
+                    setContainer(cards)
+                })
+                .catch(error => {
+                    console.log('ERROR ==> ', error)
+                })
+        }, [])
 
- export default CardContainer; 
+        return(
+            <div className="card-container">
+                <NasaCard imgUrl={container}/>
+            </div>
+        )}
+ }
