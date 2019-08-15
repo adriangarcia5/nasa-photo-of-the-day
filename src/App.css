@@ -35,16 +35,15 @@
 .card-container {
   margin: 25px 0;
 }
-
 .nasa-card {
   display: flex;
   flex-direction: row;
-  padding: 2%;
+  /* padding: 2%; */
 }
-.nasa-card img {
-  box-shadow: 5px 5px 5px #282c34;
-  width:50%;
+.nasa-card img, .nasa-card iframe {
+  width: 50%;
   height: auto;
+  box-shadow: 5px 5px 5px #282c34;
 }
 
  .card-content {
@@ -52,4 +51,5 @@
   flex-direction: column;
   padding: 0 2%;
   align-items: center;
+  width: 50%;
 }
