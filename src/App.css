@@ -43,6 +43,8 @@
 }
 .nasa-card img {
   box-shadow: 5px 5px 5px #282c34;
+  width:50%;
+  height: auto;
 }
 
  .card-content {
